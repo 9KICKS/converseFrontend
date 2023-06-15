@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200&display=swap');
+
+.terms-container {
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    background: #f3f6f8;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 80px;
+}
+
+.t-and-c {
+    margin-left: 20px;
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(0,193,162);
+}
+
+p {
+    margin-left: 100px;
+    font-size: 16px;
+}
+
+.t-and-c-button {
+    font-weight: bold;
+    background-color: rgb(0,193,162);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.t-and-c-button:hover {
+    background-color: rgb(0,170,160);
+}
