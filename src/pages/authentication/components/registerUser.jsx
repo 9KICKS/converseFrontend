@@ -81,8 +81,8 @@ function Register() {
                     <div className="input-group">
                         <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" value={confirmPassword} onChange={handleChange} required />
                     </div>
-                    {errorMessage && <p className="error-message">{errorMessage}</p>}
-                    {successMessage && <p className="success-message">{successMessage}</p>}
+                    {errorMessage && <text className="error-message">{errorMessage}</text>}
+                    {successMessage && <text className="success-message">{successMessage}</text>}
                     <button className="register-button" type="submit">Register</button>
                     <br />
                     <h5 className="terms-privacy">By continuing, you agree Converse{" "}
