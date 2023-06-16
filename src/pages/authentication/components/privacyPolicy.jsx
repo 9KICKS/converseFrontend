@@ -26,7 +26,7 @@ function PrivacyPolicy() {
                 please refer to the full privacy policy document.
             </p>
             <h3 className="privacy-policy-title">Contact Information</h3>
-            <p>To ask questions or comment about this privacy policy and our privacy practices, contact us at: officialjoshua9@gmail.com.</p>
+            <p>To ask questions or comment about this privacy policy and our privacy practices, contact us at: conversechatapplication@gmail.com.</p>
             <button className="privacy-button" onClick={() => window.location.href="/"}>Continue</button>
         </div>
     );
