@@ -123,3 +123,10 @@ input::placeholder {
     left: 10px;
     font-size: 15px;
 }
+
+.forgot-password {
+    color: rgb(0,193,162);
+    text-decoration: none;
+    margin-bottom: 8px;
+    text-align: right;
+}
