@@ -47,8 +47,9 @@ function Login() {
                     <div className="input-group">
                         <input type="password" id="password" name="password" placeholder="Password" value={password} onChange={handleChange} required/>
                     </div>
-                    {errorMessage && <p className="error-message">{errorMessage}</p>}
-                    {successMessage && <p className="success-message">{successMessage}</p>}
+                    <a className="forgot-password" href="/forgot-password">Forgot your password?</a>
+                    {errorMessage && <text className="error-message">{errorMessage}</text>}
+                    {successMessage && <text className="success-message">{successMessage}</text>}
                     <button className="login-button" type="submit">Login</button>
                 </form>
             </div>
