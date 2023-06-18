@@ -106,14 +106,6 @@ input::placeholder {
     margin-left: -10px;
 }
 
-.error-message {
-    color: green;
-    font-size: 14px;
-    margin-bottom: 10px;
-    text-align: center;
-    margin-left: -10px;
-}
-
 .register-button {
     background-color: rgb(0,193,162);
     color: white;
