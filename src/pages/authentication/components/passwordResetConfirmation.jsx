@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import axios from "axios";
+import {useNavigate, useParams} from "react-router-dom";
 import "../styles/passwordResetConfirmation.css";
 
 function PasswordResetConfirmation() {
+    const { userId, token } = useParams();
+
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -13,10 +17,29 @@ function PasswordResetConfirmation() {
         setConfirmPassword(event.target.value);
     };
 
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Add logic to verify that newPassword and confirmPassword match and meet password requirements
-        // If validation passes, submit the new password to the server to update the user's account
+
+        axios.post('http://localhost:8000/api/change/password' , {
+            password: newPassword,
+            userId: userId,
+            token: token
+        })
+            .then(response => {
+                if (response.data.success) {
+                    console.log(response.data.message);
+                } else {
+                    console.error('Error:', response.data.message);
+                }
+            })
+            .then((response) => {
+                navigate("/change/password/complete")
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
     };
 
     return (
@@ -26,10 +49,10 @@ function PasswordResetConfirmation() {
             <h1 className="password-reset-confirmation-title">Password reset confirmation</h1>
             <form className="password-reset-confirmation-form" onSubmit={handleSubmit}>
                 <div className="input-group">
-                    <input type="password" id="password" name="password" placeholder="Password" value={newPassword} onChange={handleNewPasswordChange} required/>
+                    <input type="password" id="password" name="password" placeholder="Password" value={newPassword} onChange={handleNewPasswordChange} autoComplete="off" required/>
                 </div>
                 <div className="input-group">
-                    <input type="password" id="password" name="password" placeholder="Confirm Password" value={confirmPassword} onChange={handleConfirmPasswordChange} required/>
+                    <input type="password" id="password" name="password" placeholder="Confirm Password" value={confirmPassword} onChange={handleConfirmPasswordChange} autoComplete="off" required/>
                 </div>
                 <button className="password-reset-confirmation-button" type="submit">Change my password</button>
             </form>
