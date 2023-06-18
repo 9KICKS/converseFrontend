@@ -30,6 +30,6 @@ function PrivacyPolicy() {
             <button className="privacy-button" onClick={() => window.location.href="/"}>Continue</button>
         </div>
     );
-};
+}
 
 export default PrivacyPolicy;
