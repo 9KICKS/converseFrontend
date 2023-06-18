@@ -6,7 +6,6 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -29,7 +28,7 @@ function Login() {
                 if (error.response && error.response.status === 400 && error.response.data.error) {
                     setErrorMessage(error.response.data.error);
                 } else {
-                    setSuccessMessage("Login successful.");
+                    setErrorMessage("Login failed. Try again.");
                 }
             });
     };
@@ -45,11 +44,10 @@ function Login() {
                         <input type="email" id="email" name="email" placeholder="Email" value={email} onChange={handleChange} required/>
                     </div>
                     <div className="input-group">
-                        <input type="password" id="password" name="password" placeholder="Password" value={password} onChange={handleChange} required/>
+                        <input type="password" id="password" name="password" placeholder="Password" value={password} onChange={handleChange} autoComplete="off" required/>
                     </div>
-                    <a className="forgot-password" href="/forgot-password">Forgot your password?</a>
+                    <a className="forgot-password" href="/forgot_password">Forgot your password?</a>
                     {errorMessage && <text className="error-message">{errorMessage}</text>}
-                    {successMessage && <text className="success-message">{successMessage}</text>}
                     <button className="login-button" type="submit">Login</button>
                 </form>
             </div>
