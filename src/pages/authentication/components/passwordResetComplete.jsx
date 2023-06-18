@@ -2,6 +2,7 @@ import React from 'react';
 import "../styles/passwordResetComplete.css";
 
 function PasswordResetComplete() {
+
     return (
         <div className="password-reset-complete-main-container">
             <nav className="converse-logo">CONVERSE</nav>
