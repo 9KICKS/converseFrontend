@@ -1,18 +1,32 @@
 import React, { useState } from 'react';
+import axios from "axios";
 import "../styles/forgotPassword.css";
+import {useNavigate} from "react-router-dom";
 
 function ForgotPassword() {
     const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (event) => {
         setEmail(event.target.value);
     };
 
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Add your logic to handle the password reset request here
-        setMessage('Password reset instructions have been sent to your email.');
+        axios
+            .post('http://localhost:8000/api/reset', { email })
+            .then((response) => {
+                navigate("/forgot_password_response")
+            })
+            .catch((error) => {
+                if (error.response && error.response.status === 400 && error.response.data.error) {
+                    setErrorMessage(error.response.data.error);
+                } else {
+                    setErrorMessage('Password reset failed. Try again.');
+                }
+            });
     };
 
     return (
@@ -25,7 +39,7 @@ function ForgotPassword() {
                 <div className="input-group">
                     <input type="email" id="email" name="email" placeholder="Email" value={email} onChange={handleChange} required/>
                 </div>
-                {message && <text className="message">{message}</text>}
+                {errorMessage && <text className="error-message">{errorMessage}</text>}
                 <button className="forgot-password-button" type="submit">Submit</button>
             </form>
             </div>
