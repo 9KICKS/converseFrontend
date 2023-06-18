@@ -11,7 +11,6 @@ function Register() {
     const [countries, setCountries] = useState([]);
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
-    const [successMessage, setSuccessMessage] = useState('');
 
     useEffect(() => {
         axios.get('https://restcountries.com/v3.1/all')
@@ -51,7 +50,7 @@ function Register() {
                 if (error.response && error.response.status === 400 && error.response.data.error) {
                     setErrorMessage(error.response.data.error);
                 } else {
-                    setSuccessMessage('Registration successful.');
+                    setErrorMessage('Registration failed. Try again.');
                 }
             });
     };
@@ -76,13 +75,12 @@ function Register() {
                         </select>
                     </div>
                     <div className="input-group">
-                        <input type="password" id="password" name="password" placeholder="Password" value={password} onChange={handleChange} required />
+                        <input type="password" id="password" name="password" placeholder="Password" value={password} onChange={handleChange} autoComplete="off" required/>
                     </div>
                     <div className="input-group">
-                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" value={confirmPassword} onChange={handleChange} required />
+                        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" value={confirmPassword} onChange={handleChange} autoComplete="off" required/>
                     </div>
                     {errorMessage && <text className="error-message">{errorMessage}</text>}
-                    {successMessage && <text className="success-message">{successMessage}</text>}
                     <button className="register-button" type="submit">Register</button>
                     <br />
                     <h5 className="terms-privacy">By continuing, you agree Converse{" "}
