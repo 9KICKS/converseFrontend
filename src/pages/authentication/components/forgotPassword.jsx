@@ -16,7 +16,7 @@ function ForgotPassword() {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios
-            .post('http://localhost:8000/api/reset', { email })
+            .post('http://localhost:8000/converse/reset', { email })
             .then((response) => {
                 navigate("/forgot_password_response")
             })
