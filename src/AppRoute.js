@@ -8,6 +8,7 @@ import PasswordResetSent from "./pages/authentication/components/passwordResetRe
 import PasswordResetConfirmation from "./pages/authentication/components/passwordResetConfirmation";
 import PasswordResetComplete from "./pages/authentication/components/passwordResetComplete";
 import ChatApp from "./pages/dashboard/components/chatHomePage";
+import Chat from "./pages/dashboard/components/chatInterface";
 
 function AppRoute() {
   return (
@@ -22,7 +23,8 @@ function AppRoute() {
           <Route path="/forgot_password_response" element={<PasswordResetSent />} />
           <Route path="/change/password/:userId/:token" element={<PasswordResetConfirmation />} />
           <Route path="/change/password/complete" element={<PasswordResetComplete />} />
-          <Route path="/chat" element={<ChatApp />} />
+          <Route path="/converse-home" element={<ChatApp />} />
+          <Route path="/converse-chat" element={<Chat />} />
         </Routes>
       </Router>
     </div>
