@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import "../styles/loginUser.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -16,13 +17,14 @@ function Login() {
         }
     };
 
+    const navigate = useNavigate();
+
     const handleSubmit = (event) => {
         event.preventDefault();
-
         axios
-            .post('http://localhost:8000/api/login', { email, password })
+            .post('http://localhost:8000/converse/login', { email, password })
             .then((response) => {
-
+                navigate("/converse-home")
             })
             .catch((error) => {
                 if (error.response && error.response.status === 400 && error.response.data.error) {
