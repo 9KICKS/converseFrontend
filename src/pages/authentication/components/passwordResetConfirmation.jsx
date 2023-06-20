@@ -22,7 +22,7 @@ function PasswordResetConfirmation() {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        axios.post('http://localhost:8000/api/change/password' , {
+        axios.post('http://localhost:8000/converse/change/password' , {
             password: newPassword,
             userId: userId,
             token: token
