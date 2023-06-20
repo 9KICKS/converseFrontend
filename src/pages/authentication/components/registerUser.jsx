@@ -42,7 +42,7 @@ function Register() {
     const handleSubmit = (event) => {
         event.preventDefault();
         axios
-            .post('http://localhost:8000/api/register', { email, username, password })
+            .post('http://localhost:8000/converse/register', { email, username, password })
             .then((response) => {
                 navigate("/login")
             })
